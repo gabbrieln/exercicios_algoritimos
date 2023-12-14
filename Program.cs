@@ -1,4 +1,5 @@
 ﻿List<string[]> lista = new List<string[]>();
+List<string[]> contaCorrente = new List<string[]>();
 
 while (true){
     Console.Clear();
@@ -55,12 +56,30 @@ if(sair) break;
 Thread.Sleep(4000);
 }
 
-void mostrarClientes(){
+void listarClientesCadastrados(){
+    if(lista.Count == 0){
+        menuCadastraClienteSenaoExiste();
+    }
+    mostrarClientes(false, 0, "======== [ Selecione um cliente na lista ] ");
+}
+
+void mostrarClientes(
+    bool sleep = true,
+    int timerSleep = 2000,
+    string header = "========== [ Lista de Clientes ] ===========" ){
     Console.Clear();
+    Console.WriteLine(header);
     foreach(var cliente in lista){
-        Console.WriteLine("Nome: " + cliente[0]);
-        Console.WriteLine("Telefone: " + cliente[1]);
-        Console.WriteLine("Email: " + cliente[2]);
+        Console.WriteLine("ID: " + cliente[0]);
+        Console.WriteLine("Nome: " + cliente[1]);
+        Console.WriteLine("Telefone: " + cliente[2]);
+        Console.WriteLine("Email: " + cliente[3]);
+        Console.WriteLine("------------------");
+
+        if(sleep){
+            Thread.Sleep(timerSleep);
+            Console.Clear();
+        }
 
         Thread.Sleep(3000);
         Console.Clear();
@@ -79,15 +98,22 @@ void cadastrarCliente(){
     Console.WriteLine($"Informe o nome do email {nomeCliente}");
     var email = Console.ReadLine();
 
+    if(lista.Count > 0){
+        string[]? cli = lista.Find(c => c[2] == telefone);
+            if(cli != null){
+            mensagem($"Cliente já cadastrado com este telefone {telefone}, cadastre novamente ");
+            cadastrarCliente();
+            }
+    }
+
     string[] cliente = new string[4];
 
+    nomeCliente = null;
+
     cliente[0] = id.ToString();
-    cliente[1] = nomeCliente != null ? nomeCliente: "[Sem nome]";
+    cliente[1] = nomeCliente ?? "[Sem nome]";
     cliente[2] = telefone != null ? telefone : "[Sem telefone]";
-    cliente[3] = email != null ? email : "[Sem email]";
-
-    
-
+    cliente[3] = email ?? "[Sem email]";
     lista.Add(cliente);
     mensagem($""" {nomeCliente} cadastrado com sucesso """);
 
@@ -95,5 +121,80 @@ void cadastrarCliente(){
         Console.Clear();
         Console.WriteLine(msg);
         Thread.Sleep(2000);
+    }
+}
+
+void AdicionarCreditoCliente(){
+    Console.Clear();
+    var cliente = capturaCliente();
+    Console.Clear();
+    Console.WriteLine("Digite o valor do crédito");
+    double credito = Convert.ToDouble(Console.ReadLine());
+    string[] creditoConta = new string[2];
+    
+    creditoConta[0] = cliente[0];
+    creditoConta[1] = credito.ToString();
+
+    contaCorrente.Add(creditoConta);
+    var idCliente = cliente[0];
+    mensagem($"""
+    Credito adicionado com sucesso!
+    Saldo do Cliente {cliente[1]} é de R${saldoCliente(idCliente)}
+    """);
+}
+
+double saldoCliente(string idCliente)
+{
+    var contaCorrenteCliente = contaCorrente.FindAll(c => c[0] == idCliente);
+    if(contaCorrenteCliente.Count == 0) return 0;
+
+    return contaCorrenteCliente.Sum(cc => Convert.ToDouble(cc[1]));
+}
+
+string[] capturaCliente(){
+    listarClientesCadastrados();
+    var idCliente = Console.ReadLine()?.Trim();
+    string[]? cliente = lista.Find(c => c[0] == idCliente);
+
+    if(cliente == null){
+        mensagem("Cliente não encontrado na lista, digite o ID corretamente da lista de clientes");
+        Console.Clear();
+
+        menuCadastraClienteSenaoExiste();
+        
+        return capturaCliente();
+    }
+
+    return cliente;
+}
+
+void mensagem (string msg){
+    Console.Clear();
+    Console.WriteLine(msg);
+    Thread.Sleep(1500);
+}
+
+void menuCadastraClienteSenaoExiste(){
+    Console.WriteLine($"""
+    O que você deseja fazer?
+    1 - Cadastrar cliente
+    2 - Voltar ao menu
+    3 - Sair do sistema
+    """);
+    
+    var opcao = Console.ReadLine()?.Trim();
+
+    switch(opcao){
+        case "1":
+        cadastrarCliente();
+        break;
+        case "2":
+        System.Environment.Exit(0);
+        break;
+        case "3":
+        break;
+        default:
+        Console.WriteLine("Opção inválida");
+        break;
     }
 }
