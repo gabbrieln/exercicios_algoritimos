@@ -59,7 +59,7 @@ void mostrarContaCorrente()
     var cliente = capturaCliente();
     var contaCorrenteCliente = extratoCliente(cliente[0]);
     Console.Clear();
-    Console.WriteLine("-----------------");
+    Console.WriteLine("-----------------"); 
     foreach(var contaCorrente in contaCorrenteCliente)
     {
         Console.WriteLine("Data: " + contaCorrente[2]);
@@ -104,7 +104,7 @@ void mostrarClientes(
         Thread.Sleep(3000);
         Console.Clear();
     }
-}
+}   
 
 void cadastrarCliente(){
     var id = Guid.NewGuid();
@@ -147,7 +147,6 @@ void cadastrarCliente(){
 
 
 void FazendoDebitoCliente(){
-    void AdicionarCreditoCliente(){
     Console.Clear();
     var cliente = capturaCliente();
     Console.Clear();
@@ -158,15 +157,13 @@ void FazendoDebitoCliente(){
     creditoConta[0] = cliente[0];
     creditoConta[1] = $"-{credito}";
     creditoConta[2] = DateTime.Now.ToString("dd/MM/yyyy  HH:MM");
-
-    var idCliente = cliente[0];
     contaCorrente.Add(creditoConta);
+    var idCliente = cliente[0];
     mensagem($"""
     Retirada realizada com sucesso!
     Saldo do Cliente {cliente[1]} é de R${saldoCliente(idCliente)}
     """);
     }
-}
 
 
 void AdicionarCreditoCliente(){
@@ -192,7 +189,7 @@ void AdicionarCreditoCliente(){
 List<string[]> extratoCliente(string idCliente)
 {
     
-    var contaCorrenteCliente = contaCorrente.FindAll(c => c[0] == idCliente);
+    var contaCorrenteCliente = contaCorrente.FindAll(cc => cc[0] == idCliente);
     if(contaCorrenteCliente.Count == 0) return new List<string[]>();
 
     return contaCorrenteCliente;
