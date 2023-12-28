@@ -1,0 +1,14 @@
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\Aulas1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\Aulas1.AssemblyInfoInputs.cache
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\Aulas1.AssemblyInfo.cs
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\Aulas1.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Documents\Aulas1\bin\Debug\net7.0\Aulas1.exe
+C:\Users\Dell\Documents\Aulas1\bin\Debug\net7.0\Aulas1.deps.json
+C:\Users\Dell\Documents\Aulas1\bin\Debug\net7.0\Aulas1.runtimeconfig.json
+C:\Users\Dell\Documents\Aulas1\bin\Debug\net7.0\Aulas1.dll
+C:\Users\Dell\Documents\Aulas1\bin\Debug\net7.0\Aulas1.pdb
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\Aulas1.dll
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\refint\Aulas1.dll
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\Aulas1.pdb
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\Aulas1.genruntimeconfig.cache
+C:\Users\Dell\Documents\Aulas1\obj\Debug\net7.0\ref\Aulas1.dll

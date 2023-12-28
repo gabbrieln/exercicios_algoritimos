@@ -1,6 +1,7 @@
 {
   "version": 3,
   "targets": {
+<<<<<<< HEAD
     "net7.0": {
       "Microsoft.CodeCoverage/17.4.0": {
         "type": "package",
@@ -671,6 +672,13 @@
       "Microsoft.NET.TEST.Sdk >= 17.4.0",
       "programa >= 1.0.0"
     ]
+=======
+    "net7.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net7.0": []
+>>>>>>> 618680751b50a8250222d0b7a12b5afe5480374c
   },
   "packageFolders": {
     "C:\\Users\\Dell\\.nuget\\packages\\": {},
@@ -679,11 +687,19 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Dell\\Documents\\Aulas1\\logica\\programa.test\\programa.test.csproj",
       "projectName": "programa.test",
       "projectPath": "C:\\Users\\Dell\\Documents\\Aulas1\\logica\\programa.test\\programa.test.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Dell\\Documents\\Aulas1\\logica\\programa.test\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Dell\\Documents\\Aulas1\\Aulas1.csproj",
+      "projectName": "Aulas1",
+      "projectPath": "C:\\Users\\Dell\\Documents\\Aulas1\\Aulas1.csproj",
+      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dell\\Documents\\Aulas1\\obj\\",
+>>>>>>> 618680751b50a8250222d0b7a12b5afe5480374c
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -704,11 +720,15 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+<<<<<<< HEAD
           "projectReferences": {
             "C:\\Users\\Dell\\Documents\\Aulas1\\logica\\programa\\programa.csproj": {
               "projectPath": "C:\\Users\\Dell\\Documents\\Aulas1\\logica\\programa\\programa.csproj"
             }
           }
+=======
+          "projectReferences": {}
+>>>>>>> 618680751b50a8250222d0b7a12b5afe5480374c
         }
       },
       "warningProperties": {
@@ -720,12 +740,15 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
+<<<<<<< HEAD
         "dependencies": {
           "Microsoft.NET.TEST.Sdk": {
             "target": "Package",
             "version": "[17.4.0, )"
           }
         },
+=======
+>>>>>>> 618680751b50a8250222d0b7a12b5afe5480374c
         "imports": [
           "net461",
           "net462",
